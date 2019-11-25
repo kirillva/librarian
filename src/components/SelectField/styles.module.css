@@ -1,0 +1,23 @@
+.options {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  background-color: khaki;
+}
+.item {
+  width: 100%;
+  background-color: aqua;
+}
+.optionsWrapper {
+  flex: 1;
+  transform: translate3d(0, 0, 0);
+  user-select: none;
+}
+.hiddenValue {
+  display: none;
+}
+.button {
+  width: 24px;
+  height: 24px;
+}

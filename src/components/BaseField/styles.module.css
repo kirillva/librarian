@@ -1,0 +1,10 @@
+.fieldWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  flex: 1;
+}
+.inputWrapper {
+  display: flex;
+}
