@@ -1,5 +1,7 @@
 .options {
   width: 100%;
+  max-height: 100px;
+  overflow-y: auto;
   display: flex;
   position: absolute;
   flex-direction: column;
@@ -20,4 +22,16 @@
 .button {
   width: 24px;
   height: 24px;
+}
+.optionLess {
+  flex: 1;
+}
+
+.optionBig {
+  flex: 1;
+  height: 50px;
+}
+
+.optionItemWrapper {
+  display: flex;
 }

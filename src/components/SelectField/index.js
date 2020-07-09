@@ -7,29 +7,44 @@ const SelectField = ({
   idProperty = "id",
   valueProperty = "value",
   options,
-  optionRenderer = value => value,
-  onChange = () => {}
+  optionRenderer = (value) => value,
+  onChange = () => {},
 }) => {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState();
   const [value, _setValue] = useState();
+  const [expanded, setExpanded] = useState(-1);
 
-  const setValue = value => {
+  const setValue = (value) => {
     onChange(value);
     _setValue(value);
   };
 
-  const _optionRenderer = item => (
-    <span
-      key={item[idProperty]}
-      className={styles.item}
-      onClick={e => {
-        setValue(item[idProperty]);
-        setText(item[valueProperty]);
-        setOpen(false);
-      }}
-    >
-      {optionRenderer(item[valueProperty])}
+  const _optionRenderer = (item, id) => (
+    <span key={item[idProperty]} className={styles.item}>
+      <div className={styles.optionItemWrapper}>
+        <span
+          onClick={(e) => {
+            setValue(item[idProperty]);
+            setText(item[valueProperty]);
+            setOpen(false);
+          }}
+          className={expanded === id ? styles.optionBig : styles.optionLess}
+        >
+          {optionRenderer(item[valueProperty])}
+        </span>
+        <span
+          onClick={(e) => {
+            if (expanded === id) {
+              setExpanded(-1);
+            } else {
+              setExpanded(id);
+            }
+          }}
+        >
+          (i)
+        </span>
+      </div>
     </span>
   );
 
